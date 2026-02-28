@@ -4,4 +4,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  base: '/RiverHRMS/',
+  build: {
+    outDir: 'docs',
+    assetsDir: 'assets'
+  }
 })
