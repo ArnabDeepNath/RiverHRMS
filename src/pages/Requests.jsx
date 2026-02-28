@@ -3,7 +3,7 @@ import { leaveRequests } from '../data/mockData';
 import { useAuth } from '../context/AuthContext';
 
 export default function Requests() {
-    const { currentUser, role, canApprove, canViewAllRequests } = useAuth();
+    const { currentUser, canApprove, canViewAllRequests } = useAuth();
     const [activeTab, setActiveTab] = useState('all');
 
     const requests = useMemo(() => {
@@ -48,8 +48,8 @@ export default function Requests() {
                         key={tab.key}
                         onClick={() => setActiveTab(tab.key)}
                         className={`flex-1 px-4 py-2 text-sm font-medium rounded-lg transition-default whitespace-nowrap ${activeTab === tab.key
-                                ? 'bg-action text-white'
-                                : 'text-text-muted hover:text-text-main'
+                            ? 'bg-action text-white'
+                            : 'text-text-muted hover:text-text-main'
                             }`}
                     >
                         {tab.label}
@@ -70,8 +70,8 @@ export default function Requests() {
                             className="bg-surface border border-border rounded-xl p-4 hover:border-action/30 transition-default animate-fade-in"
                             style={{ animationDelay: `${idx * 40}ms` }}
                         >
-                            <div className="flex items-start justify-between gap-4">
-                                <div className="min-w-0 flex-1">
+                            <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
+                                <div className="min-w-0 flex-1 w-full">
                                     <div className="flex items-center gap-2 flex-wrap">
                                         <h3 className="text-sm font-bold text-text-main">{req.employeeName}</h3>
                                         <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${statusClasses[req.status]}`}>

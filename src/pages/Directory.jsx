@@ -37,11 +37,6 @@ export default function Directory() {
         return () => observer.disconnect();
     }, [visibleCount, filtered.length]);
 
-    // Reset visible count on filter change
-    useEffect(() => {
-        setVisibleCount(BATCH_SIZE);
-    }, [search, teamFilter]);
-
     return (
         <div className="max-w-3xl mx-auto animate-fade-in">
             <h1 className="text-2xl font-bold text-text-main mb-1">Directory</h1>
@@ -57,7 +52,10 @@ export default function Directory() {
                         type="text"
                         placeholder="Search by name or title..."
                         value={search}
-                        onChange={(e) => setSearch(e.target.value)}
+                        onChange={(e) => {
+                            setSearch(e.target.value);
+                            setVisibleCount(BATCH_SIZE);
+                        }}
                         className="w-full pl-10 pr-4 py-2.5 text-sm bg-surface border border-border rounded-xl focus:outline-none focus:border-action focus:ring-1 focus:ring-action/20 transition-default placeholder:text-text-muted/60"
                     />
                 </div>
@@ -65,10 +63,13 @@ export default function Directory() {
                     {teams.map(team => (
                         <button
                             key={team}
-                            onClick={() => setTeamFilter(team)}
+                            onClick={() => {
+                                setTeamFilter(team);
+                                setVisibleCount(BATCH_SIZE);
+                            }}
                             className={`px-3 py-2 text-xs font-medium rounded-lg whitespace-nowrap transition-default ${teamFilter === team
-                                    ? 'bg-action text-white'
-                                    : 'bg-surface border border-border text-text-muted hover:text-text-main'
+                                ? 'bg-action text-white'
+                                : 'bg-surface border border-border text-text-muted hover:text-text-main'
                                 }`}
                         >
                             {team}

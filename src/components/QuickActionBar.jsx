@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function QuickActionBar({ onRequestLeave, onClockToggle, clockedIn }) {
@@ -25,8 +24,8 @@ export default function QuickActionBar({ onRequestLeave, onClockToggle, clockedI
                 <button
                     onClick={onClockToggle}
                     className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl transition-default border ${clockedIn
-                            ? 'bg-danger/8 text-danger border-danger/20 hover:bg-danger/15'
-                            : 'bg-success/8 text-success border-success/20 hover:bg-success/15'
+                        ? 'bg-danger/8 text-danger border-danger/20 hover:bg-danger/15'
+                        : 'bg-success/8 text-success border-success/20 hover:bg-success/15'
                         }`}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

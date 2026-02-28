@@ -9,7 +9,7 @@ import ClockInOut from '../components/ClockInOut';
 export default function AppLayout() {
     const [leaveModalOpen, setLeaveModalOpen] = useState(false);
     const [clockModalOpen, setClockModalOpen] = useState(false);
-    const [clockedIn, setClockedIn] = useState(() => {
+    const [clockedIn] = useState(() => {
         return localStorage.getItem('stoichrm_clocked_in') === 'true';
     });
 
@@ -23,7 +23,7 @@ export default function AppLayout() {
             <Sidebar />
 
             {/* Main Content */}
-            <main className="md:ml-56 pb-32 md:pb-24 px-4 sm:px-6 lg:px-8 pt-6 md:pt-8">
+            <main className="md:ml-56 pb-40 md:pb-24 px-4 sm:px-6 lg:px-8 pt-6 md:pt-8">
                 <Outlet />
             </main>
 
