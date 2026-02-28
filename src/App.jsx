@@ -9,7 +9,7 @@ import Settings from './pages/Settings';
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/RiverHRMS">
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<Dashboard />} />
